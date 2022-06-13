@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package joguinho;
+
+import java.util.ArrayList;
 /**
  *
  * @author 20201038060005
@@ -14,6 +16,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        createLists();
+        
         this.labelOutputNomeHeroi.setText(heroi1.getName());
         this.labelOutputNomeVilao.setText(v1.getName());
         
@@ -295,6 +299,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     Cavaleiro heroi1 = new Cavaleiro("Sr. Bondosus", 15, 4, 12, 200, 0.1);
     
+//    ArrayList<Heroi> equipeHeroi = new ArrayList<>();
+//    ArrayList<Vilao> bandoVilao = new ArrayList<>();
+    ArrayList<Personagem> todosNaBatalha = new ArrayList<>();
+    
 //    Argumentos
     int aniquilacao = 1;
     int rendicao = 0;
@@ -325,16 +333,27 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar progbarLifeStatusVilao;
     // End of variables declaration//GEN-END:variables
     
+    
+//    Criando ArrayList<>
+    private void createLists(){
+//        equipeHeroi.add(heroi1);
+//        bandoVilao.add(v1);
+//        equipeHeroi.add(heroi2);
+        
+        todosNaBatalha.add(v1);
+        todosNaBatalha.add(heroi1);
+    }
+    
 //    Funções para a batalha
     private void batalhaComeca(){
-        if(heroi1.estaVivo() && v1.estaVivo()){
+        if(!timeAbatido(todosNaBatalha)){
             batalhaAtacar(heroi1, v1);
 //            try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
-            if(v1.estaVivo()){
+            if(alguemVivoVilao(todosNaBatalha)){
                 vilaoAtaca();
                 batalhaAtacar(v1, heroi1);
 //                try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
-                if(!heroi1.estaVivo()){
+                if(!alguemVivoHeroi(todosNaBatalha)){
                     batalhaTermina(aniquilacao);
                 } else {
                     visibleOn(this.btnHeroiAtacar);
@@ -419,5 +438,45 @@ public class MainFrame extends javax.swing.JFrame {
             case 0 -> this.labelStatusBatalhaMotivo.setText("Vitória por Rendição");
             case 1 -> this.labelStatusBatalhaMotivo.setText("Vitória por Aniquilação");
         }
+    }
+
+    private boolean timeAbatido(ArrayList<Personagem> lista) {
+        return !(alguemVivoVilao(lista) || alguemVivoHeroi(lista));
+    }
+//    private int quantidadeHeroi(ArrayList<Personagem> lista){
+//        int quantidadeHeroi = 0;
+//        for (Personagem personAtual : lista){
+//            if(personAtual instanceof Heroi){
+//                quantidadeHeroi ++;
+//            }
+//        }
+//        return quantidadeHeroi;
+//    }
+//    private int quantidadeVilao(ArrayList<Personagem> lista){
+//        int quantidadeVilao = 0;
+//        for (Personagem personAtual : lista){
+//            if(personAtual instanceof Vilao){
+//                quantidadeVilao ++;
+//            }
+//        }
+//        return quantidadeVilao;
+//    }
+    private boolean alguemVivoVilao(ArrayList<Personagem> lista){
+        boolean vilaoVivo = false; 
+        for (Personagem personAtual : lista){
+            if(personAtual instanceof Vilao && personAtual.estaVivo()){
+                vilaoVivo = true;
+            }
+        }
+        return vilaoVivo;
+    }
+    private boolean alguemVivoHeroi(ArrayList<Personagem> lista){
+        boolean heroiVivo = false; 
+        for (Personagem personAtual : lista){
+            if(personAtual instanceof Heroi && personAtual.estaVivo()){
+                heroiVivo = true;
+            }
+        }
+        return heroiVivo;
     }
 }
