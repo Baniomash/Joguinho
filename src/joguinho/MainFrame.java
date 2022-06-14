@@ -23,6 +23,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         this.progbarLifeStatusHeroi.setValue(heroi1.getVidaAtual());
         this.progbarLifeStatusHeroi.setMaximum(heroi1.getVidaMaxima());
+        
+        this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+                .getResource(heroi1.getSpriteIdle())));
     }
 
     /**
@@ -36,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
         panelCampoBatalha = new javax.swing.JPanel();
         panelHeroi = new javax.swing.JPanel();
         panelAcoesHeroi = new javax.swing.JPanel();
@@ -45,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
         labelOutputNomeHeroi = new javax.swing.JLabel();
         progbarLifeStatusHeroi = new javax.swing.JProgressBar();
         labelHeroiDanoRecebido = new javax.swing.JLabel();
+        labelSpriteHeroi = new javax.swing.JLabel();
         panelVilao = new javax.swing.JPanel();
         panelAcoesVilao = new javax.swing.JPanel();
         labelVilaoAcao = new javax.swing.JLabel();
@@ -52,7 +57,8 @@ public class MainFrame extends javax.swing.JFrame {
         labelOutputNomeVilao = new javax.swing.JLabel();
         progbarLifeStatusVilao = new javax.swing.JProgressBar();
         labelVilaoDanoRecebido = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        labelSpriteVilao = new javax.swing.JLabel();
+        panelStatusBatalha = new javax.swing.JPanel();
         labelStatusBatalha = new javax.swing.JLabel();
         labelStatusBatalhaMotivo = new javax.swing.JLabel();
 
@@ -66,6 +72,8 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,11 +115,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         labelHeroiDanoRecebido.setText(" ");
 
+        labelSpriteHeroi.setText(" ");
+
         javax.swing.GroupLayout panelHeroiLayout = new javax.swing.GroupLayout(panelHeroi);
         panelHeroi.setLayout(panelHeroiLayout);
         panelHeroiLayout.setHorizontalGroup(
             panelHeroiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelAcoesHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelHeroiLayout.createSequentialGroup()
                 .addGroup(panelHeroiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHeroiLayout.createSequentialGroup()
@@ -119,10 +128,13 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelOutputNomeHeroi))
                     .addGroup(panelHeroiLayout.createSequentialGroup()
-                        .addComponent(progbarLifeStatusHeroi, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelHeroiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelSpriteHeroi)
+                            .addComponent(progbarLifeStatusHeroi, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelHeroiDanoRecebido)))
-                .addGap(0, 31, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
+            .addComponent(panelAcoesHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelHeroiLayout.setVerticalGroup(
             panelHeroiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,8 +146,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(panelHeroiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(progbarLifeStatusHeroi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelHeroiDanoRecebido))
-                .addGap(177, 177, 177)
-                .addComponent(panelAcoesHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelSpriteHeroi)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(panelAcoesHeroi, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         panelVilao.setBorder(javax.swing.BorderFactory.createTitledBorder("Vilão"));
@@ -160,6 +174,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         labelVilaoDanoRecebido.setText(" ");
 
+        labelSpriteVilao.setText(" ");
+
         javax.swing.GroupLayout panelVilaoLayout = new javax.swing.GroupLayout(panelVilao);
         panelVilao.setLayout(panelVilaoLayout);
         panelVilaoLayout.setHorizontalGroup(
@@ -172,10 +188,12 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelOutputNomeVilao))
                     .addGroup(panelVilaoLayout.createSequentialGroup()
-                        .addComponent(progbarLifeStatusVilao, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelVilaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelSpriteVilao)
+                            .addComponent(progbarLifeStatusVilao, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelVilaoDanoRecebido)))
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
         panelVilaoLayout.setVerticalGroup(
             panelVilaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,23 +205,25 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(panelVilaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(progbarLifeStatusVilao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelVilaoDanoRecebido))
-                .addGap(177, 177, 177)
-                .addComponent(panelAcoesVilao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelSpriteVilao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelAcoesVilao, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Status da Batalha"));
-        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
+        panelStatusBatalha.setBorder(javax.swing.BorderFactory.createTitledBorder("Status da Batalha"));
+        panelStatusBatalha.setLayout(new java.awt.GridLayout(0, 1));
 
         labelStatusBatalha.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         labelStatusBatalha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatusBatalha.setText("...");
         labelStatusBatalha.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(labelStatusBatalha);
+        panelStatusBatalha.add(labelStatusBatalha);
 
         labelStatusBatalhaMotivo.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         labelStatusBatalhaMotivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatusBatalhaMotivo.setText(" ");
-        jPanel2.add(labelStatusBatalhaMotivo);
+        panelStatusBatalha.add(labelStatusBatalhaMotivo);
 
         javax.swing.GroupLayout panelCampoBatalhaLayout = new javax.swing.GroupLayout(panelCampoBatalha);
         panelCampoBatalha.setLayout(panelCampoBatalhaLayout);
@@ -212,22 +232,22 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(panelCampoBatalhaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCampoBatalhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelStatusBatalha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelCampoBatalhaLayout.createSequentialGroup()
-                        .addComponent(panelHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                        .addComponent(panelHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelVilao, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))
+                        .addComponent(panelVilao, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelCampoBatalhaLayout.setVerticalGroup(
             panelCampoBatalhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCampoBatalhaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelCampoBatalhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(panelVilao, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                .addGroup(panelCampoBatalhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelVilao, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addComponent(panelHeroi, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelStatusBatalha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -245,19 +265,19 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHeroiAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeroiAtacarActionPerformed
-        visibleOff(this.btnHeroiAtacar);
-        visibleOff(this.btnHeroiRendicao);
-        batalhaComeca();       
-//        try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
-        
-    }//GEN-LAST:event_btnHeroiAtacarActionPerformed
-
     private void btnHeroiRendicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeroiRendicaoActionPerformed
         visibleOff(this.btnHeroiAtacar);
         visibleOff(this.btnHeroiRendicao);
         rendicao(heroi1);
     }//GEN-LAST:event_btnHeroiRendicaoActionPerformed
+
+    private void btnHeroiAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeroiAtacarActionPerformed
+        visibleOff(this.btnHeroiAtacar);
+        visibleOff(this.btnHeroiRendicao);
+        batalhaComeca();
+        //        try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
+
+    }//GEN-LAST:event_btnHeroiAtacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,8 +324,14 @@ public class MainFrame extends javax.swing.JFrame {
     ArrayList<Personagem> todosNaBatalha = new ArrayList<>();
     
 //    Argumentos
-    int aniquilacao = 1;
     int rendicao = 0;
+    int aniquilacao = 1;
+    
+//    int animacaoIdle = 0;
+//    int animacaoAtaque = 1;
+//    int animacaoDanoReceb = 2;
+//    int animacaoDerrubado = 3;
+//    int animacaoRendido = 4;
     
 //    Arqueiro heroi2 = new Arqueiro("Cog", 15, 3, 12, 200, 50);
 
@@ -313,11 +339,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnHeroiAtacar;
     private javax.swing.JButton btnHeroiRendicao;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelHeroiDanoRecebido;
     private javax.swing.JLabel labelOutputNomeHeroi;
     private javax.swing.JLabel labelOutputNomeVilao;
+    private javax.swing.JLabel labelSpriteHeroi;
+    private javax.swing.JLabel labelSpriteVilao;
     private javax.swing.JLabel labelStatusBatalha;
     private javax.swing.JLabel labelStatusBatalhaMotivo;
     private javax.swing.JLabel labelTitleNomeHeroi;
@@ -328,6 +356,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelAcoesVilao;
     private javax.swing.JPanel panelCampoBatalha;
     private javax.swing.JPanel panelHeroi;
+    private javax.swing.JPanel panelStatusBatalha;
     private javax.swing.JPanel panelVilao;
     private javax.swing.JProgressBar progbarLifeStatusHeroi;
     private javax.swing.JProgressBar progbarLifeStatusVilao;
@@ -411,32 +440,46 @@ public class MainFrame extends javax.swing.JFrame {
     private void vilaoAtaca() {
         this.labelVilaoAcao.setText("Vilão Ataca!");
 //        try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
-        this.labelVilaoAcao.setText("(...)");
     }
     
     private void rendicao(Personagem charter){
-        
-//        if(charter instanceof Vilao){
             int retirarLife = charter.getVidaAtual();
             charter.setVidaAtual(0);
             setLifeStatus(charter, retirarLife);
             batalhaTermina(rendicao);
-            
-//        } else {
-//            this.labelStatusBatalha.setText("O Vilão \""+v1.getName()+"\" Venceu!!!");
-//        }
     }
 
     private void batalhaResultado(int motivo) {
         if(heroi1.estaVivo()&&!(v1.estaVivo())){
             this.labelStatusBatalha.setText("O HERÓI \""+heroi1.getName()+"\" VENCEU!!!");
+            this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+                        .getResource(heroi1.getSpriteVitoria())));
+            switch (motivo){
+                case 0 -> {
+                    this.labelStatusBatalhaMotivo.setText("Vitória por Rendição");
+//                    this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+//                        .getResource(v1.getSpriteRendido())));
+                }
+                case 1 -> {
+                    this.labelStatusBatalhaMotivo.setText("Vitória por Aniquilação");
+//                    this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+//                        .getResource(v1.getSpriteDerrubado())));
+                }
+        }
         }else{
             this.labelStatusBatalha.setText("O VILÃO \""+v1.getName()+"\" VENCEU!!!");
-        }
-
-        switch (motivo){
-            case 0 -> this.labelStatusBatalhaMotivo.setText("Vitória por Rendição");
-            case 1 -> this.labelStatusBatalhaMotivo.setText("Vitória por Aniquilação");
+            switch (motivo){
+                case 0 -> {
+                    this.labelStatusBatalhaMotivo.setText("Vitória por Rendição");
+                    this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+                        .getResource(heroi1.getSpriteRendido())));
+                }
+                case 1 -> {
+                    this.labelStatusBatalhaMotivo.setText("Vitória por Aniquilação");
+                    this.labelSpriteHeroi.setIcon(new javax.swing.ImageIcon(getClass()
+                        .getResource(heroi1.getSpriteDerrubado())));
+                }
+            }
         }
     }
 
@@ -479,4 +522,12 @@ public class MainFrame extends javax.swing.JFrame {
         }
         return heroiVivo;
     }
+//    private String animacaoSprites(Personagem charter, int arg){
+//        switch(arg){
+//            case 0 -> {
+//                return 
+//            }
+//                
+//        }
+//    }
 }
